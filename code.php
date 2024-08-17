@@ -23,12 +23,3 @@ function save_phone_number_field( $user_id ) {
 }
 add_action( 'personal_options_update', 'save_phone_number_field' );
 add_action( 'edit_user_profile_update', 'save_phone_number_field' );
-
-// Display phone number field
-function display_phone_number_field( $user ) {
-    $phone_number = get_user_meta( $user->ID, 'phone_number', true );
-    if ( !empty( $phone_number ) ) {
-        echo '<p>Phone Number: ' . esc_html( $phone_number ) . '</p>';
-    }
-}
-add_action( 'show_user_profile', 'display_phone_number_field' );
